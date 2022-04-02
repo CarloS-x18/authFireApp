@@ -1,0 +1,17 @@
+.main-body {
+  width: 100%;
+  min-height: 100vh;
+  padding: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(25, 26, 39);
+
+  .form-container {
+    width: 500px;
+    padding: 60px 30px;
+    background-color: rgb(46, 50, 80);
+    border-radius: 10px;
+  }
+}
+

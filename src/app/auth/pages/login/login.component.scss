@@ -1,0 +1,43 @@
+form {
+  display: grid;
+  gap: 30px;
+
+  h2 {
+    text-align: center;
+    color: white;
+  }
+
+  .input-group-text {
+    background-color: rgb(80, 87, 140);
+    border-color: rgb(80, 87, 140);
+    color: white;
+  }
+
+  .form-control {
+    background-color: rgb(190, 195, 213);
+    border-color: rgb(190, 195, 213);
+  }
+
+  .btn-form {
+    background-color: rgb(80, 87, 140);
+    color: white;
+
+    &:disabled {
+      background-color: #2b2c348a;
+    }
+  }
+
+  .question-account {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    span {
+      color: rgb(195, 195, 195);
+    }
+
+    a {
+      color: rgb(126, 126, 225);
+    }
+  }
+}

@@ -1,0 +1,34 @@
+<form autocomplete="off"
+      [formGroup]="form"
+      (ngSubmit)="login()">
+  <h2>Login</h2>
+  <div class="input-group">
+    <label class="input-group-text">Email</label>
+    <input type="text"
+           class="form-control"
+           placeholder="Your email"
+           formControlName="email">
+  </div>
+  <div class="input-group">
+    <label class="input-group-text">Password</label>
+    <input type="password"
+           class="form-control"
+           placeholder="Your password"
+           formControlName="password">
+  </div>
+  <button type="submit"
+          [disabled]="form.invalid"
+          class="btn btn-form">
+    Sign in
+  </button>
+
+  <div class="question-account">
+    <span>
+      You do not have an account?
+    </span>
+
+    <a routerLink="/auth/register">
+        Create on here
+    </a>
+  </div>
+</form>
