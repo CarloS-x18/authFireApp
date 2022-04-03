@@ -1,4 +1,20 @@
-<div>
-  <h1>Logueado</h1>
-  <p>Haz iniciado sesion con esta cuenta</p>
+<div class="container">
+  <div class="text-center">
+    <h1>Logueado</h1>
+    <p>Haz iniciado sesion con esta cuenta</p>
+  </div>
+
+  <div class="data-user" *ngIf="userData">
+    <div class="label">
+      <span class="first">Email: </span>
+      <span class="second">{{ userData.email }}</span>
+    </div>
+    <div class="label">
+      <span class="first">uid: </span>
+      <span class="second">{{ userData.uid }}</span>
+    </div>
+  </div>
+
+  <button class="btn btn-danger"
+          (click)="logout">Logout</button>
 </div>

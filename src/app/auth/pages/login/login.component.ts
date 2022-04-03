@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -10,18 +11,36 @@ import { Router } from '@angular/router';
 export class LoginComponent {
 
   form: FormGroup = this.fb.group({
-    email: [ 'test1@test.com', [Validators.required, Validators.email] ],
-    password: [ '123456', [Validators.required, Validators.minLength(6)] ]
+    email: [ '', [Validators.required, Validators.email] ],
+    password: [ '', [Validators.required, Validators.minLength(6)] ]
   });
 
   constructor( private fb: FormBuilder,
-               private router: Router ) { }
+               private router: Router,
+               private authService: AuthService ) { }
 
-  login() {
-    console.log(this.form.valid);
-    console.log(this.form.value);
+  async login() {
 
-    this.router.navigateByUrl('/dashboard');
+    const { email, password } = this.form.value;
+
+    try {
+      await this.authService.login(email, password)
+        .then( resp => {
+          this.router.navigateByUrl('/dashboard');
+        })
+    } catch (error) {
+      console.log(error)
+    }
+
   }
 
+  loginWithGoogle() {
+    return this.authService.loginWithGoogle()
+      .then( resp => {
+        this.router.navigateByUrl('/dashboard');
+      })
+      .catch( err => {
+        console.log(err.message);
+      });
+  }
 }

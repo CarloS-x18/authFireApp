@@ -18,12 +18,28 @@ form {
     border-color: rgb(190, 195, 213);
   }
 
-  .btn-form {
+  .buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .btn-signup {
     background-color: rgb(80, 87, 140);
     color: white;
 
     &:disabled {
       background-color: #2b2c348a;
+    }
+  }
+
+  .btn-google {
+    background-color: white;
+    color: black;
+
+    img {
+      width: 25px;
+      margin-left: 10px;
     }
   }
 

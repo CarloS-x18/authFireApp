@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "authfireapp-d64f0": {
+      "hosting": {
+        "authFireApp": [
+          "authfireapp-d64f0"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "authfireapp-d64f0"
+  }
+}

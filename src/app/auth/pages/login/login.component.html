@@ -16,11 +16,19 @@
            placeholder="Your password"
            formControlName="password">
   </div>
-  <button type="submit"
-          [disabled]="form.invalid"
-          class="btn btn-form">
-    Sign in
-  </button>
+  <div class="buttons">
+    <button type="submit"
+            [disabled]="form.invalid"
+            class="btn btn-signup">
+      Sign in
+    </button>
+    <button (click)="loginWithGoogle()"
+            type="button"
+            class="btn btn-google">
+      Continue whit Google
+      <img src="./assets/icons/google.svg" alt="google icon">
+    </button>
+  </div>
 
   <div class="question-account">
     <span>
