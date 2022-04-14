@@ -2,36 +2,55 @@
       [formGroup]="form"
       (ngSubmit)="login()">
   <h2>Login</h2>
-  <div class="input-group">
-    <label class="input-group-text">Email</label>
-    <input type="text"
-           class="form-control"
-           placeholder="Your email"
-           formControlName="email">
+  <div class="input">
+    <div class="input-group">
+      <label class="input-group-text">Email</label>
+      <input type="text"
+             class="form-control"
+             placeholder="Your email"
+             formControlName="email">
+    </div>
+    <span class="text-danger"
+          *ngIf="form.controls['email'].invalid && form.controls['email'].touched">
+      This email is not correct.
+    </span>
   </div>
-  <div class="input-group">
-    <label class="input-group-text">Password</label>
-    <input type="password"
-           class="form-control"
-           placeholder="Your password"
-           formControlName="password">
+
+  <div class="input">
+    <div class="input-group">
+      <label class="input-group-text">Password</label>
+      <input type="password"
+             class="form-control"
+             placeholder="Your password"
+             formControlName="password">
+    </div>
+    <span class="text-danger"
+          *ngIf="form.controls['password'].invalid && form.controls['password'].touched">
+      They are require 6 characters or more.
+    </span>
   </div>
   <div class="buttons">
     <button type="submit"
-            [disabled]="form.invalid"
             class="btn btn-signup">
       Sign in
     </button>
     <button (click)="loginWithGoogle()"
             type="button"
-            class="btn btn-google">
+            class="btn btn-google btn-social">
       Continue whit Google
       <img src="./assets/icons/google.svg" alt="google icon">
+    </button>
+
+    <button class="btn btn-primary btn-social"
+            type="button"
+            (click)="loginWithFacebook()">
+      Continue whit Facebook
+      <img src="./assets/icons/facebook.png" alt="google icon">
     </button>
   </div>
 
   <div class="question-account">
-    <span>
+    <span class="text-center">
       You do not have an account?
     </span>
 

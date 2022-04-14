@@ -7,6 +7,11 @@ form {
     color: white;
   }
 
+  .input {
+    display: grid;
+    gap: 10px;
+  }
+
   .input-group-text {
     background-color: rgb(80, 87, 140);
     border-color: rgb(80, 87, 140);
@@ -36,7 +41,12 @@ form {
   .btn-google {
     background-color: white;
     color: black;
-
+  }
+  .btn-social {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
     img {
       width: 25px;
       margin-left: 10px;

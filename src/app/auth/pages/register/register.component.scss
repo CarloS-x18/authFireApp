@@ -7,6 +7,11 @@ form {
     color: white;
   }
 
+  .input {
+    display: grid;
+    gap: 10px;
+  }
+
   .input-group-text {
     background-color: rgb(80, 87, 140);
     border-color: rgb(80, 87, 140);

@@ -5,24 +5,30 @@ import firebase from 'firebase/compat/app';
 import { UserData } from '../interface/interface';
 import { Router } from '@angular/router';
 
-import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { AngularFirestore, QueryDocumentSnapshot } from '@angular/fire/compat/firestore';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  userData!: UserData;
+  userData: UserData = {
+    name: '',
+    email: '',
+    url_Photo: '...'
+  };
 
   constructor( private auth: AngularFireAuth,
+               private firestore: AngularFirestore,
                private router: Router ) {
                  auth.authState
                    .subscribe( user => {
                      if( user !== null ) {
-                      this.userData = {
-                        email: user.email!,
-                        uid: user.uid!
-                      }
+                      this.getDataUserById( user.uid )
+                        .then( user => {
+                          this.userData = user.data() as UserData;
+                        });
                     }
                    });
                }
@@ -37,12 +43,24 @@ export class AuthService {
 
   loginWithGoogle() {
     return this.auth.signInWithPopup( new firebase.auth.GoogleAuthProvider() )
-    // return signInWithPopup(this.auth, new GoogleAuthProvider());
+  }
+
+  loginWithFacebook() {
+    return this.auth.signInWithPopup( new firebase.auth.FacebookAuthProvider() );
   }
 
   logout() {
-    this.auth.signOut();
     this.router.navigateByUrl('auth');
+    this.auth.signOut();
+    this.userData = {};
+  }
+
+  saveDataNewUser( uid: string, user: UserData ) {
+    return this.firestore.collection('users').doc(uid).set(user);
+  }
+
+  getDataUserById( id: string ) {
+    return this.firestore.collection('users').doc(id).ref.get();
   }
 
 }

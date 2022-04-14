@@ -5,6 +5,12 @@
   align-items: center;
   gap: 40px;
 
+  .profile-img {
+    img {
+      width: 96px;
+    }
+  }
+
   p {
     margin: 0;
   }

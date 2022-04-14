@@ -2,35 +2,69 @@
       [formGroup]="form"
       (ngSubmit)="register()">
   <h2>Register</h2>
-  <div class="input-group">
-    <label class="input-group-text" for="">Name</label>
-    <input type="text"
-           class="form-control"
-           placeholder="Your name"
-           formControlName="name">
+
+  <div class="input">
+    <div class="input-group">
+      <label class="input-group-text">Name</label>
+      <input type="text"
+             class="form-control"
+             placeholder="Your name"
+             formControlName="name">
+    </div>
+    <span class="text-danger"
+          *ngIf="formValidator('name')">
+      Name is required with a minimum of 6 letters.
+    </span>
   </div>
-  <div class="input-group">
-    <label class="input-group-text" for="">Email</label>
-    <input type="text"
-           class="form-control"
-           placeholder="Your email"
-           formControlName="email">
+
+  <div class="input">
+    <div class="input-group">
+      <label class="input-group-text">Email</label>
+      <input type="text"
+             class="form-control"
+             placeholder="Your email"
+             formControlName="email">
+    </div>
+    <span class="text-danger"
+          *ngIf="formValidator('email')">
+      Email is not correct.
+    </span>
   </div>
-  <div class="input-group">
-    <label class="input-group-text" for="">Password</label>
-    <input type="password"
-           class="form-control"
-           placeholder="Your password"
-           formControlName="password">
+
+  <div class="input">
+    <div class="input-group">
+      <label class="input-group-text">Phone</label>
+      <input type="string"
+             class="form-control"
+             placeholder="Your phone number"
+             formControlName="phone">
+    </div>
+    <span class="text-danger"
+          *ngIf="formValidator('phone')">
+          Phone number invalid, minimum 10 digits.
+    </span>
+  </div>
+
+  <div class="input">
+    <div class="input-group">
+      <label class="input-group-text">Password</label>
+      <input type="password"
+             class="form-control"
+             placeholder="Your password"
+             formControlName="password">
+    </div>
+    <span class="text-danger"
+          *ngIf="formValidator('password')">
+      They are require 6 characters or more.
+    </span>
   </div>
   <button type="submit"
-          [disabled]="form.invalid"
           class="btn btn-form">
     Sign up
   </button>
 
   <div class="question-account">
-    <span>
+    <span class="text-center">
       Do you already have an account?
     </span>
 

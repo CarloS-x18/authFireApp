@@ -4,14 +4,24 @@
     <p>Haz iniciado sesion con esta cuenta</p>
   </div>
 
-  <div class="data-user" *ngIf="userData">
-    <div class="label">
-      <span class="first">Email: </span>
-      <span class="second">{{ userData.email }}</span>
+  <div class="profile-data container" *ngIf="userData.name !== '' ">
+    <div class="profile-img">
+      <img src="{{ userData.url_Photo }}" alt="profile photo">
     </div>
-    <div class="label">
-      <span class="first">uid: </span>
-      <span class="second">{{ userData.uid }}</span>
+
+    <div class="data-user">
+      <div class="label">
+        <span class="first">Name: </span>
+        <span class="second">{{ userData.name }}</span>
+      </div>
+      <div class="label">
+        <span class="first">Email: </span>
+        <span class="second">{{ userData.email }}</span>
+      </div>
+      <div class="label" *ngIf="userData.phone">
+        <span class="first">Phone: </span>
+        <span class="second">{{ userData.phone }}</span>
+      </div>
     </div>
   </div>
 

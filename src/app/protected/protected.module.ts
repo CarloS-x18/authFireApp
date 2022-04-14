@@ -3,11 +3,13 @@ import { CommonModule } from '@angular/common';
 
 import { ProtectedRoutingModule } from './protected-routing.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { PhotoProfilePipe } from './pipes/photo-profile.pipe';
 
 
 @NgModule({
   declarations: [
-    DashboardComponent
+    DashboardComponent,
+    PhotoProfilePipe
   ],
   imports: [
     CommonModule,
